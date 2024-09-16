@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;  
+    font-style: italic;  
+}
+
+.heart-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('wo.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-container {
+    perspective: 900px;
+    position: relative; /* Ensure the buttons are positioned relative to this container */
+}
+
+.card {
+    width: 400px;
+    height: 600px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform   1s;
+    z-index: 60; /* Ensure the card is above other elements */
+}
+
+.card-page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    background: rgba(246, 244, 244, 0.9);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: rotateY(0deg);
+    transition: transform 1s;
+    overflow: hidden;
+}
+
+.card-page:nth-child(odd) {
+    background: rgba(240, 161, 173, 0.7); /* Light pink */
+}
+
+.card-page:nth-child(even) {
+    background: rgba(255, 223, 186, 0.7); /* Light peach */
+}
+
+.card-controls {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 60; /* Ensure controls are above the card */
+}
+
+.control-button {
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.control-button:hover {
+    background-color: #c80000;
+}
+
+.control-button:active {
+    transform: scale(0.95);
+}
+
+img {
+    max-width: 100%;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.content {
+    text-align: center;
+}
+
+.content p {
+    font-size: 20px;
+    color: #333;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 90vw;
+        height: auto;
+    }
+
+    .control-button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
