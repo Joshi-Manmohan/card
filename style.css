@@ -21,16 +21,21 @@ body {
 
 .card-container {
     perspective: 900px;
-    position: relative; /* Ensure the buttons are positioned relative to this container */
+    position: relative;
+    width: 100%;
+    max-width: 90vw; /* Adjust max width for different screens */
+    margin: auto;
+    padding: 10px; /* Padding for smaller screens */
+    box-sizing: border-box;
 }
 
 .card {
-    width: 400px;
-    height: 600px;
+    width: 100%;
+    height: auto; /* Adjust height based on content */
     position: relative;
     transform-style: preserve-3d;
-    transition: transform   1s;
-    z-index: 60; /* Ensure the card is above other elements */
+    transition: transform 1s;
+    z-index: 60;
 }
 
 .card-page {
@@ -42,7 +47,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 20px;
+    padding: 150px;
     box-sizing: border-box;
     border-radius: 15px;
     background: rgba(246, 244, 244, 0.9);
@@ -62,23 +67,23 @@ body {
 
 .card-controls {
     position: absolute;
-    bottom: 20px;
+    bottom: 10px; /* Adjust bottom positioning */
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 0 10px;
     box-sizing: border-box;
-    z-index: 60; /* Ensure controls are above the card */
+    z-index: 60;
 }
 
 .control-button {
     background-color: #ff6f61;
     color: white;
     border: none;
-    padding: 12px 24px;
+    padding: 10px 20px;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
     transition: background-color 0.3s, transform 0.2s;
 }
 
@@ -93,7 +98,7 @@ body {
 img {
     max-width: 100%;
     border-radius: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -102,20 +107,42 @@ img {
 }
 
 .content p {
-    font-size: 20px;
+    font-size: 16px; /* Adjust font size for smaller screens */
     color: #333;
     font-weight: bold;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
+/* Responsive Styles for Tablets and Mobile Devices */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .card-container {
+        max-width: 80vw; /* Adjust width for tablets and small laptops */
+        padding: 20px; /* Increase padding for larger screens */
+    }
+
+    .control-button {
+        font-size: 16px;
+        padding: 12px 24px;
+    }
+}
+
 @media (max-width: 768px) {
+    .card-container {
+        max-width: 95vw; /* Full width with small margins for mobile devices */
+        padding: 5px; /* Reduce padding for very small screens */
+    }
+
     .card {
-        width: 90vw;
-        height: auto;
+        width: 100%;
+        height: auto; /* Allow height to adjust based on content */
     }
 
     .control-button {
         font-size: 14px;
         padding: 10px 20px;
+    }
+
+    .content p {
+        font-size: 14px; /* Slightly smaller text for mobile devices */
     }
 }
